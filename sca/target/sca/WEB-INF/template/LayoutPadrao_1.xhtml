@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <title><ui:insert name="titulo">SCA</ui:insert></title>
+
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+        <h:outputStylesheet library="css" name="estilo.css" />
+        <h:outputScript library="js" name="jquery-1.11.3.min.js" />
+        <h:outputScript library="js" name="bootstrap.min.js" />
+
+    </h:head>
+
+
+
+    <h:body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Meu Site</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Jogos</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Tutoriais</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Vídeo aulas</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Empresa</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Pesquisar">
+                        </div>
+                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav> <!-- final do navbar -->
+        <div class="wrapper" role="main">
+            <div class="container">
+                <div class="row">
+                    <div id="conteudo" class="col-md-9">
+                        
+                        <ui:insert name="corpo">
+                            teste
+                        </ui:insert>
+                    
+                    </div><!-- div conteudo -->
+
+                    <!-- Sidebar -->
+                    <div id="sidebar" class="col-md-3">
+                        <div class="widget">
+                            <h3>Newsletter</h3>
+                            <form class="form" role="form">
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputEmail2">Entre com seu email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Entre com seu email">
+                                </div>
+                                <button type="submit" class="btn btn-success">Cadastrar</button>
+                            </form>
+                        </div>
+                        <div class="widget">
+                            <h3>Parceiros</h3>
+                            <ul>
+                                <li><a href="">Parceiro 1</a></li>
+                                <li><a href="">Parceiro 2</a></li>
+                                <li><a href="">Parceiro 3</a></li>
+                                <li><a href="">Parceiro 4</a></li>
+                                <li><a href="">Parceiro 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div><!-- div row container -->
+            </div><!-- div container -->
+        </div><!-- div wrapper -->
+
+    </h:body>
+
+    <footer> <!-- Aqui e a area do footer -->
+        <div class="container">
+            <div class="row">
+                <div id="linksImportantes" class="col-xs-12 col-sm-3 col-md-3">
+                    <h4>Links Importantes</h4>
+                    <ul>
+                        <li><a href="#">Link1</a></li>
+                        <li><a href="#">Link2</a></li>
+                        <li><a href="#">Link3</a></li>
+                        <li><a href="#">Link4</a></li>
+                    </ul>
+                </div> <!-- Aqui e a area dos links importantes -->
+                <div id="redesSociais" class="col-xs-12 col-sm-3 col-md-3">
+                    <h4>Redes Sociais</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Googleplus</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div> <!-- Aqui e a area das redes sociais -->
+                <div id="logoFooter" class="col-xs-12 col-sm-3 col-md-3 col-sm-offset-3 col-md-offset-3 ">
+                    <h2>Meu site</h2>
+                </div> <!-- Aqui e a area da logo do rodape -->
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</html>

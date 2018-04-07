@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:o="http://omnifaces.org/ui">
+
+
+    <ui:composition template="/WEB-INF/app/appLayout.xhtml">
+        <ui:define name="container">
+            <f:metadata>
+                <o:viewParam name="aluno" value="#{cadastroAlunoBean.aluno}" />
+                <f:viewAction action="#{cadastroAlunoBean.inicializar}" />
+            </f:metadata>
+            <h:form id="frm">
+
+                <p:focus context="frm" />
+                <h1>#{cadastroAlunoBean.editando ? 'Edição de Aluno' : 'Novo Aluno'}</h1>
+
+                <p:messages autoUpdate="true" closable="true" />
+
+                <b:navBar brand="Opções" brandHref="#" >
+                    <div class="btn-group" role="group" aria-label="..." style="margin-top: 0.5%;">
+                        <p:button value="Novo" class="btn btn-primary" outcome="/alunos/CadastroAlunos" />
+
+                        <p:commandButton value="Salvar" id="botaoSalvar" class="btn btn-primary"
+                                         action="#{cadastroAlunoBean.salvar}" update="@form"
+                                         validateClient="false" />
+                        <p:button value="Pesquisa" style="btn btn-primary" class="btn btn-primary"/>
+                    </div>
+
+                </b:navBar>
+
+                <!-- aluno -->
+                <!-- area de campos do form -->
+                <hr />
+                <b:row id="painel">
+                    <b:formGroup class="col-md-7">
+                        <p:outputLabel value="Nome" for="nome"></p:outputLabel>
+                        <p:inputText id="nome" class="form-control" maxlength="80" value="#{cadastroAlunoBean.aluno.nome}" disabled=""/>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="RG" for="rg"></p:outputLabel>
+                        <p:inputMask mask="999.999.999-99" value="#{cadastroAlunoBean.aluno.rg}" class="form-control" id="rg" maxlength="20" />
+                    </b:formGroup>
+                    <b:formGroup class="col-md-2">
+                        <p:outputLabel value="Data Nasc" for="dataNnasc"></p:outputLabel>
+                        <p:calendar value="#{cadastroAlunoBean.aluno.dataNasc}" label="Data Posse" id="dataNnasc" class="form-control"
+                                    pattern="dd/MM/yyyy" size="8" />
+                    </b:formGroup>
+
+                </b:row>
+                <b:row>
+                    <b:formGroup class="col-md-5">
+                        <p:outputLabel value="Email" for="email"></p:outputLabel>
+                        <p:inputText id="email" class="form-control" maxlength="60" value="#{cadastroAlunoBean.aluno.email}" disabled=""/>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="Telefone" for="telefone"></p:outputLabel>
+                        <p:inputMask mask="(99)9999-9999" value="#{cadastroAlunoBean.aluno.telefone}" class="form-control" id="telefone" maxlength="20" />
+                    </b:formGroup>
+                    <b:formGroup class="col-md-4">
+                        <p:outputLabel value="Celular" for="celular"></p:outputLabel>
+                        <p:inputMask mask="(99)99999-9999" value="#{cadastroAlunoBean.aluno.celular}" class="form-control" id="celular" maxlength="20" />
+                    </b:formGroup>
+
+                </b:row>
+
+                <b:row>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="Sexo" for="sexo"></p:outputLabel>
+                        <p:selectOneMenu value="#{cadastroAlunoBean.aluno.sexo}" id="sexo" class="form-control">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItems value="#{cadastroAlunoBean.sexo}"
+                                           var="sexo" itemLabel="#{sexo.label}" itemValue="#{sexo.value}"/>
+                        </p:selectOneMenu>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-4">
+                        <p:outputLabel value="Renda" for="renda"></p:outputLabel>
+
+                        <p:inputText id="renda" class="form-control moeda" value="#{cadastroAlunoBean.aluno.renda}">
+                            <f:convertNumber maxFractionDigits="2" minFractionDigits="2" />
+                        </p:inputText>
+                    </b:formGroup>
+
+                    <b:formGroup class="col-md-5">
+                        <p:outputLabel value="Formação" for="formacao"></p:outputLabel>
+                        <p:selectOneMenu value="#{cadastroAlunoBean.aluno.formacao}" id="formacao" class="form-control">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItems value="#{cadastroAlunoBean.grau}"
+                                           var="grau" itemLabel="#{grau.label}" itemValue="#{grau.value}"/>
+                        </p:selectOneMenu>
+                    </b:formGroup>
+                </b:row>
+
+                <b:row>
+
+                    <b:formGroup class="col-md-6">
+                        <p:outputLabel value="Endereço" for="endereco"></p:outputLabel>
+                        <p:inputText id="endereco" class="form-control" maxlength="100" value="#{cadastroAlunoBean.aluno.endereco}"/>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="Cep" for="cep"></p:outputLabel>
+
+                        <p:inputText id="cep" class="form-control" value="#{cadastroAlunoBean.aluno.cep}">
+
+                        </p:inputText>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="UF" for="uf"></p:outputLabel>                        
+                        <p:selectOneMenu value="#{cadastroAlunoBean.aluno.uf}" id="uf" class="form-control">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItems value="#{cadastroAlunoBean.uf}"
+                                           var="uf" itemLabel="#{uf.label}" itemValue="#{sexo.value}"/>
+                        </p:selectOneMenu>
+                    </b:formGroup>
+
+                </b:row>
+                <b:row>
+                    <b:formGroup class="col-md-8">
+                        <p:outputLabel value="Responsável" for="responsavel"></p:outputLabel>
+                        <p:inputText id="responsavel" class="form-control" maxlength="100" value="#{cadastroAlunoBean.aluno.responsavel}"/>
+                    </b:formGroup>
+
+                </b:row>
+                <b:row>
+                    <b:formGroup class="col-md-12">
+                        <p:outputLabel value="Observação" for="observacao"></p:outputLabel>
+                        <p:inputTextarea id="observacao" class="form-control" value="#{cadastroAlunoBean.aluno.observacao}" />
+                    </b:formGroup>
+                </b:row>
+
+            </h:form>
+
+
+        </ui:define>    
+
+    </ui:composition>
+</html>

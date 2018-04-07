@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:b="http://bootsfaces.net/ui">
+
+    <b:navBar brand="SCA" class="" inverse="true" fixed="top">
+        <b:navbarLinks>
+            <b:navLink value="Ínicio" href="#"></b:navLink>
+            <b:dropMenu value="Meu Perfil">
+                <b:navLink value="Configuração" href="#"></b:navLink>
+                <b:navLink value="Certificados" href="#"></b:navLink>
+                <b:navLink></b:navLink>
+                <b:navLink value="Cursos finalizados"></b:navLink>
+
+            </b:dropMenu>
+             <b:dropMenu value="Alunos">
+                 <b:navLink value="Cadastrar Alunos" href="#{facesContext.externalContext.request.contextPath}/alunos/CadastroAlunos.xhtml"></b:navLink>
+                <b:navLink></b:navLink>
+                <b:navLink value="Pesquisar Alunos" href="#{facesContext.externalContext.request.contextPath}/alunos/PesquisaAlunos.xhtml"></b:navLink>
+            </b:dropMenu>
+            <b:dropMenu value="Usuários">
+                 <b:navLink value="Cadastrar Usúarios" href="#{facesContext.externalContext.request.contextPath}/usuarios/CadastroUsuarios.xhtml"></b:navLink>
+                <b:navLink></b:navLink>
+                <b:navLink value="Pesquisar Alunos" href="#{facesContext.externalContext.request.contextPath}/usuarios/PesquisaUsuarios.xhtml" ></b:navLink>
+
+            </b:dropMenu>
+            <b:dropMenu value="Matrícula">
+                <b:navLink value="Matricular Alunos" href="#{facesContext.externalContext.request.contextPath}/matriculas/MatricularAlunos.xhtml"></b:navLink>
+            </b:dropMenu>
+        </b:navbarLinks>
+        <!-- <h:form styleClass="navbar-form navbar-right">
+            <div class="form-group">`
+                <b:inputText placeholder="Email" fieldSize="sm"/>
+            </div>
+            <div class="form-group">
+                <b:inputText placeholder="Password" fieldSize="sm"/>
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </div>
+        #{' '}
+        <b:commandButton action="a" value="Logar" look="success" icon="chevron-right" iconAlign="right"/>
+    </h:form> -->
+
+        
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Olá #{seguranca.nomeUsuario}!</a></li>
+            <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+
+    </b:navBar>
+
+</ui:composition>

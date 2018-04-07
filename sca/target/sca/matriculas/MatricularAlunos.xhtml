@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/WEB-INF/app/appLayout.xhtml">
+
+        <ui:define name="titulo">Novo produto</ui:define>
+        <ui:define name="container">
+            <f:metadata>
+
+            </f:metadata>
+            <h:form id="frm">
+                <p:focus context="frm" />
+
+                <h2>Matrícula</h2>
+
+                <p:messages autoUpdate="true" closable="true" />
+
+                <b:navBar brand="Opções" brandHref="#" >
+                    <div class="btn-group" role="group" aria-label="..." style="margin-top: 0.5%;">
+                        <p:button value="Novo" class="btn btn-primary"/>
+                        <p:commandButton value="Salvar" id="botaoSalvar"
+                                         update="@form"
+                                         validateClient="false" style="" class="btn btn-primary"/>
+                        <p:button value="Pesquisa" style="" class="btn btn-primary"/>
+                    </div>
+
+                </b:navBar>
+
+                <!-- Matricula -->
+                <!-- area de campos do form -->
+                <hr />
+                <b:row>
+                    <b:formGroup class="col-md-7">
+                        <p:outputLabel value="Aluno" for="aluno"></p:outputLabel>
+                        <p:selectOneMenu value="" id="aluno" class="form-control">
+                            <f:selectItem itemLabel="Selecione" itemValue="" />
+                            <f:selectItems value=""
+                                           var="aluno" itemLabel="" itemValue=""/>
+                        </p:selectOneMenu>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="Código Aluno" for="cod_aluno"></p:outputLabel>
+                        <p:inputText value="" class="form-control" id="cod_aluno" maxlength="20" disabled="true" />
+                    </b:formGroup>
+                    <b:formGroup class="col-md-2">
+                        <p:outputLabel value="Nº da Matrícula" for="matricula"></p:outputLabel>
+                        <p:inputText value="" class="form-control" id="matricula" maxlength="20" />
+                    </b:formGroup> 
+                </b:row>
+                <b:row>
+                    <b:formGroup class="col-md-5">
+                        <p:outputLabel value="Turma" for="turma"></p:outputLabel>
+                        <p:selectOneMenu value="" id="turma" class="form-control">
+                            <f:selectItem itemLabel="Selecione" itemValue="" />
+                            <f:selectItems value=""
+                                           var="turma" itemLabel="" itemValue=""/>
+                        </p:selectOneMenu>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="Código" for="codigo"></p:outputLabel>
+                        <p:inputText value="" class="form-control" id="codigo" maxlength="20" />
+                    </b:formGroup>
+                    <b:formGroup class="col-md-4">
+                        <p:outputLabel value="Alunos Matriculados" for="alunos_matriculados"></p:outputLabel>
+                        <p:inputText value="" class="form-control" id="alunos_matriculados" maxlength="20" disabled="true" />
+                    </b:formGroup>
+                </b:row>
+                <b:row>
+                    <b:formGroup class="col-md-2">
+                        <p:outputLabel value="Ano Letivo" for="ano_letivo"></p:outputLabel>
+                        <p:inputMask mask="9999" value="" class="form-control" id="ano_letivo" maxlength="4" />
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="Período" for="periodo"></p:outputLabel>
+                        <p:inputText id="periodo" class="form-control" maxlength="" value="" disabled=""/>
+                    </b:formGroup>
+                    <b:formGroup class="col-md-2">
+                        <p:outputLabel value="Data Matrícula" for="data_matricula"></p:outputLabel>
+                        <p:inputMask mask="99/99/9999" value="" class="form-control" id="data_matricula" maxlength="20" />
+                    </b:formGroup>
+                    <b:formGroup class="col-md-2">
+                        <p:outputLabel value="Data Pagamento" for="data_pagamento"></p:outputLabel>
+                        <p:inputMask mask="99/99/9999" value="" class="form-control" id="data_pagamento" maxlength="20" />
+                    </b:formGroup>
+                    <b:formGroup class="col-md-3">
+                        <p:outputLabel value="Valor Parcela" for="valor_parcela"></p:outputLabel>
+                        <p:inputMask mask="999.999,99" value="" class="form-control" id="valor_parcela" maxlength="20" />
+                    </b:formGroup>
+                </b:row>
+                <b:row>
+                    <b:formGroup class="col-md-4">
+                        <p:outputLabel value="Discíplina" for="disciplina"></p:outputLabel>
+                        <p:inputMask mask="999.999,99" value="" class="form-control" id="disciplina" maxlength="20" />
+                    </b:formGroup> 
+                    <b:formGroup class="col-md-2" style="padding-top: 2.2%;">
+                        <p:link class="btn btn-primary form-control"> <span class="glyphicon glyphicon-ok"></span> Adicionar Discíplina</p:link>
+                    </b:formGroup>
+
+
+                </b:row>
+
+                <b:row id="actions">
+                    <b:column col-md="12">
+                        <p:button value="Salva" class="btn btn-primary"/>
+                        <p:button value="Cancelar" class="btn btn-default"/>
+                    </b:column>
+
+                </b:row >
+
+            </h:form>
+
+
+        </ui:define>    
+
+    </ui:composition>
+</html>
